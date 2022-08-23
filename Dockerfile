@@ -15,7 +15,7 @@ RUN apt-get update -y && apt-get install \
 
 # DOTFILES
 RUN rm .bashrc
-RUN git clone --recursive --bare https://github.com/blinksh/blink-build-dotfiles.git /root/.cfg && \
+RUN GIT_TERMINAL_PROMPT=0 git clone --recursive --bare https://github.com/blinksh/blink-build-dotfiles.git /root/.cfg && \
   git --git-dir=/root/.cfg --work-tree=/root config status.showUntrackedFiles no && \
   git --git-dir=/root/.cfg --work-tree=/root checkout
 # homebrew
