@@ -36,5 +36,11 @@ RUN cd /tmp/library-scripts && \
     # Rust    
 #    /bin/bash rust-debian.sh && \
     # Node
-    /bin/bash n lts && npm i -g yarn && \
-    rm -rf /tmp/library-scripts
+#    /bin/bash n lts && npm i -g yarn && \
+    # Ruby
+    /bin/bash rbenv-system-wide.sh && \
+    /bin/bash -l -c "rbenv install 3.1.2" && /bin/bash -l -c "rbenv global 3.1.2" && \
+    /bin/bash -l -c "rbenv install 2.7.6" && \
+    # Python
+    # PHP
+    rm -rf /tmp/*
