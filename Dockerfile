@@ -1,4 +1,4 @@
-ARG VARIANT="buster"
+ARG VARIANT="bullseye"
 FROM buildpack-deps:${VARIANT}
 
 ARG USERNAME=blink
@@ -8,7 +8,8 @@ ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="true"
 
 # Copy scripts
-COPY library-scripts/*.sh library-scripts/*.env /tmp/library-scripts/ 
+# TODO Use common-library and then the rest, so that the context does not change for this stage.
+COPY common-library-scripts/*.sh common-library-scripts/*.env /tmp/library-scripts/ 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     #
@@ -20,8 +21,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     neovim emacs-nox \
     tmux screen \
     htop procps file \
-    sqlite postgresql-client \
+    sqlite3 postgresql-client \
     mc tree ack fzf \
     lua5.3 \
     #
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+
+# Runtimes
+COPY library-scripts/*.sh library-scripts/*.env /tmp/library-scripts/ 
+RUN cd /tmp/library-scripts && \
+    /bin/bash swift5-debian.sh && \
+    rm -rf /tmp/library-scripts
