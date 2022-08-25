@@ -31,4 +31,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 COPY library-scripts/*.sh library-scripts/*.env /tmp/library-scripts/ 
 RUN cd /tmp/library-scripts && \
     /bin/bash swift5-debian.sh && \
+    /bin/bash rust-debian.sh && \
     rm -rf /tmp/library-scripts
