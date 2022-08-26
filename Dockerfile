@@ -32,15 +32,22 @@ COPY library-scripts/*.sh library-scripts/*.env /tmp/library-scripts/
 # External scripts
 RUN curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o /tmp/library-scripts/n
 RUN cd /tmp/library-scripts && \
-#    /bin/bash swift5-debian.sh && \
-    # Rust    
-#    /bin/bash rust-debian.sh && \
+    /bin/bash swift5-debian.sh && \
+    # Rust
+    /bin/bash rust-debian.sh && \
+    # TODO Rust tooling
     # Node
-#    /bin/bash n lts && npm i -g yarn && \
+    /bin/bash n lts && npm i -g yarn && \
+    # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
     /bin/bash -l -c "rbenv install 3.1.2" && /bin/bash -l -c "rbenv global 3.1.2" && \
     /bin/bash -l -c "rbenv install 2.7.6" && \
-    # Python
-    # PHP
+    # TODO Ruby: bundler
+    # Go
+    /bin/bash go-debian.sh && \
+    # TODO Python
+    # TODO PHP
     rm -rf /tmp/*
+
+# TODO We should include a changelog for what is new in the image.
