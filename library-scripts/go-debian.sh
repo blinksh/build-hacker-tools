@@ -80,7 +80,7 @@ gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 'EB4C 1BFD 4F04 2F6D DD
 gpg --batch --keyserver keyserver.ubuntu.com --recv-keys '2F52 8D36 D67B 69ED F998  D857 78BD 6547 3CB3 BD13';
 echo "Downloading Go ${TARGET_GO_VERSION}..."
 curl -fsSL -o /tmp/go.tar.gz "https://golang.org/dl/go${TARGET_GO_VERSION}.linux-${architecture}.tar.gz"
-# The original script can do magic with the versions, we skipped that.
+# The original script can do magic to figure out the versions, we skip that.
 curl -fsSL -o /tmp/go.tar.gz.asc "https://golang.org/dl/go${TARGET_GO_VERSION}.linux-${architecture}.tar.gz.asc"
 gpg --batch --verify /tmp/go.tar.gz.asc /tmp/go.tar.gz
 gpgconf --kill all
@@ -115,7 +115,7 @@ if [ "${INSTALL_GO_TOOLS}" = "true" ]; then
         echo "Go version < 1.16, using go get."
     fi
 
-    (echo "${GO_TOOLS}" | xargs -n 1 go ${go_install_command} -v )2>&1 | tee -a /usr/local/etc/vscode-dev-containers/go.log
+    (echo "${GO_TOOLS}" | xargs -n 1 go ${go_install_command} -v )2>&1 | tee -a /var/log/go.log
 
     # Move Go tools into path and clean up
     mv /tmp/gotools/bin/* ${TARGET_GOTOOLS}/bin/
@@ -123,9 +123,9 @@ if [ "${INSTALL_GO_TOOLS}" = "true" ]; then
     rm -rf /tmp/gotools
 fi
 
-# Add go PATH system wide
+# Add PATH(s) system wide
 echo 'export PATH=$PATH:{$TARGET_GOROOT}/go/bin:${TARGET_GOTOOLS}/bin' >> /etc/profile
-# TODO chmod -R g+r+w "${TARGET_GOPATH}"
+chmod -R o+r "${TARGET_GOROOT}/go" "${TARGET_GOTOOLS}"
 
 echo "Done!"
 
