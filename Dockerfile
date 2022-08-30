@@ -35,7 +35,7 @@ RUN cd /tmp/library-scripts && \
     /bin/bash swift5-debian.sh && \
     # Rust
     /bin/bash rust-debian.sh && \
-    # TODO Rust tooling
+    /bin/bash rust-analyzer-debian.sh && \
     # Node
     /bin/bash n lts && npm i -g yarn && \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
