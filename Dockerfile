@@ -48,6 +48,7 @@ RUN cd /tmp/library-scripts && \
     /bin/bash go-debian.sh && \
     # TODO Python
     # TODO PHP
+    /bin/bash helix-debian.sh && \
     rm -rf /tmp/*
 
 # TODO We should include a changelog for what is new in the image.
