@@ -11,11 +11,11 @@
 # Syntax: ./go-debian.sh [Install tools flag]
 
 TARGET_GO_VERSION="latest"
-TARGET_GOROOT="/usr/local/"
+TARGET_GOROOT="/usr/local"
 # GOPATH is now part of the workspace
 # TARGET_GOPATH="/go"
 # Where to install the tools
-TARGET_GOTOOLS="/opt/go/"
+TARGET_GOTOOLS="/opt/go"
 INSTALL_GO_TOOLS=${1:-"true"}
 
 # https://www.google.com/linuxrepositories/
@@ -124,7 +124,9 @@ if [ "${INSTALL_GO_TOOLS}" = "true" ]; then
 fi
 
 # Add PATH(s) system wide
-echo 'export PATH=$PATH:{$TARGET_GOROOT}/go/bin:${TARGET_GOTOOLS}/bin' >> /etc/profile
+echo '# go setup' > /etc/profile.d/go-env.sh
+echo 'export PATH=$PATH:'"${TARGET_GOROOT}/go/bin:${TARGET_GOTOOLS}/bin" >> /etc/profile.d/go-env.sh
+
 chmod -R o+r "${TARGET_GOROOT}/go" "${TARGET_GOTOOLS}"
 
 echo "Done!"
