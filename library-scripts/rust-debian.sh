@@ -1,7 +1,8 @@
+# Based on the official rust image
 export RUSTUP_HOME=/usr/local/rustup
 export CARGO_HOME=/usr/local/cargo
 export PATH=/usr/local/cargo/bin:$PATH
-RUST_VERSION=1.63.0
+export RUST_VERSION=1.63.0
 
 echo "Installing Rust $RUST_VERSION"
 
@@ -21,8 +22,14 @@ echo "${rustupSha256} *rustup-init" | sha256sum -c -
 chmod +x rustup-init
 ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch}
 rm rustup-init
-ln -sf $CARGO_HOME/env /etc/profile.d/rustup-env.sh
+
+echo '# rust setup' > /etc/profile.d/rustup-env.sh
+echo "export RUSTUP_HOME=$RUSTUP_HOME" >> /etc/profile.d/rustup-env.sh
+echo "export CARGO_HOME=$CARGO_HOME" >> /etc/profile.d/rustup-env.sh
+echo "export RUST_VERSION=$RUST_VERSION" >> /etc/profile.d/rustup-env.sh
+echo "source $CARGO_HOME/env" >> /etc/profile.d/rustup-env.sh
 chmod +x /etc/profile.d/rustup-env.sh
+
 chmod -R a+w $RUSTUP_HOME $CARGO_HOME
 
 # Smoke test
