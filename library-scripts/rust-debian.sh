@@ -20,7 +20,7 @@ url="https://static.rust-lang.org/rustup/archive/1.25.1/${rustArch}/rustup-init"
 wget "$url"
 echo "${rustupSha256} *rustup-init" | sha256sum -c -
 chmod +x rustup-init
-./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch}
+./rustup-init -y --no-modify-path --default-toolchain $RUST_VERSION --default-host ${rustArch}
 rm rustup-init
 
 echo '# rust setup' > /etc/profile.d/rustup-env.sh
