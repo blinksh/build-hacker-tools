@@ -91,6 +91,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         ca-certificates \
         unzip \
         zip \
+        p7zip-full \
         mg \
         nano \
         vim-tiny \
@@ -114,6 +115,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         strace \
         manpages \
         manpages-dev \
+        speedtest-cli \
         init-system-helpers"
         
     # Needed for adding manpages-posix and manpages-posix-dev which are non-free packages in Debian
