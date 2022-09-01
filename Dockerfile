@@ -37,7 +37,7 @@ RUN cd /tmp/library-scripts && \
     /bin/bash rust-debian.sh && \
     /bin/bash rust-analyzer-debian.sh && \
     # Node
-    /bin/bash n lts && npm i -g yarn && npm install -g typescript-language-server typescript && \
+    /bin/bash n lts && npm i -g n yarn typescript-language-server typescript && \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \

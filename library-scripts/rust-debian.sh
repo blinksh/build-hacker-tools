@@ -32,6 +32,8 @@ chmod +x /etc/profile.d/rustup-env.sh
 
 chmod -R a+w $RUSTUP_HOME $CARGO_HOME
 
+rustup component add clippy rustfmt
+
 # Smoke test
 rustup --version
 cargo --version
