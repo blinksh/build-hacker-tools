@@ -37,7 +37,10 @@ RUN cd /tmp/library-scripts && \
     /bin/bash rust-debian.sh && \
     /bin/bash rust-analyzer-debian.sh && \
     # Node
-    /bin/bash n lts && npm i -g n yarn typescript-language-server typescript && \
+    /bin/bash n lts && \
+        npm i -g n yarn \
+            typescript-language-server typescript bash-language-server vls svelte-language-server \
+            awk-language-server@>=0.5.2 && \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
@@ -49,6 +52,7 @@ RUN cd /tmp/library-scripts && \
     # TODO Python
     # TODO PHP
     /bin/bash helix-debian.sh && \
+    /bin/bash broot-debian.sh && \
     rm -rf /tmp/*
 
 # TODO We should include a changelog for what is new in the image.
