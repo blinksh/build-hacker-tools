@@ -50,6 +50,10 @@ RUN cd /tmp/library-scripts && \
     # Go
     /bin/bash go-debian.sh && \
     # TODO Python
+    # Python
+    /bin/bash pyenv-system-wide.sh && \
+    /bin/bash -l -c "pyenv install 3.10.6" && /bin/bash -l -c "pyenv global 3.10.6" && \
+    /bin/bash -l -c "pyenv install 2.7.18" && \
     # TODO PHP
     /bin/bash helix-debian.sh && \
     /bin/bash broot-debian.sh && \
