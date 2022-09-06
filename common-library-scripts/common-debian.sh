@@ -82,6 +82,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         iproute2 \
         procps \
         lsof \
+        atop \
         htop \
         net-tools \
         psmisc \
