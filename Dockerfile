@@ -41,6 +41,7 @@ RUN cd /tmp/library-scripts && \
         npm i -g n yarn \
             typescript-language-server typescript bash-language-server vls svelte-language-server \
             awk-language-server@>=0.5.2 && \
+        curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
