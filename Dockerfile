@@ -57,6 +57,7 @@ RUN cd /tmp/library-scripts && \
     /bin/bash -l -c "pyenv install 2.7.18" && \
     # TODO PHP
     /bin/bash helix-debian.sh && \
+    /bin/bash nvim-debian.sh && \
     /bin/bash broot-debian.sh && \
     rm -rf /tmp/*
 
