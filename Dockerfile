@@ -18,7 +18,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # * here. We want to do this before cleanup to keep the "layer" small.       *
     # ****************************************************************************
     && apt-get -y install --no-install-recommends \
-    neovim emacs-nox \
+    emacs-nox \
     tmux screen \
     htop procps file \
     sqlite3 postgresql-client \
