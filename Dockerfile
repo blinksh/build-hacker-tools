@@ -45,15 +45,15 @@ RUN cd /tmp/library-scripts && \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
-    /bin/bash -l -c "rbenv install 3.1.2" && /bin/bash -l -c "rbenv global 3.1.2" && \
-    /bin/bash -l -c "rbenv install 2.7.6" && \
+    /bin/bash -l -c "rbenv install 3.1.3" && /bin/bash -l -c "rbenv global 3.1.3" && \
+    /bin/bash -l -c "rbenv install 2.7.7" && \
     # TODO Ruby: bundler
     # Go
     /bin/bash go-debian.sh && \
     # TODO Python
     # Python
     /bin/bash pyenv-system-wide.sh && \
-    /bin/bash -l -c "pyenv install 3.10.6" && /bin/bash -l -c "pyenv global 3.10.6" && \
+    /bin/bash -l -c "pyenv install 3.11.1" && /bin/bash -l -c "pyenv global 3.11.1" && \
     /bin/bash -l -c "pyenv install 2.7.18" && \
     # TODO PHP
     /bin/bash helix-debian.sh && \
