@@ -45,7 +45,7 @@ RUN cd /tmp/library-scripts && \
     # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
-    /bin/bash -l -c "rbenv install 3.1.3" && /bin/bash -l -c "rbenv global 3.1.3" && \
+    /bin/bash -l -c "rbenv install 3.2.1" && /bin/bash -l -c "rbenv global 3.2.1" && \
     /bin/bash -l -c "rbenv install 2.7.7" && \
     # TODO Ruby: bundler
     # Go
