@@ -5,7 +5,7 @@
 1. Rust (rustup)
 2. Swift (took from swift offical docker)
 3. Python (pyenv)
-4. Lua
+4. Lua (TBD)
 5. Ruby (rvm)
 6. V (src) (TBD)
 7. Go
