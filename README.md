@@ -7,7 +7,7 @@
 3. Python (pyenv)
 4. Lua
 5. Ruby (rvm)
-6. V (src)
+6. V (src) (TBD)
 7. Go
 8. Dev tools (C/C++, etc...)
 
