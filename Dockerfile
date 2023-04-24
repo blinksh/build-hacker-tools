@@ -24,7 +24,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     sqlite3 postgresql-client \
     mc tree ack fzf \
     lua5.3 \
-    software-properties-common \
+    libc6 \
     #
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
