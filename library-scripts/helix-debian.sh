@@ -5,6 +5,7 @@ echo "Installing Helix"
 
 mkdir -p $HELIX
 
+
 set -eux;
 dpkgArch="$(dpkg --print-architecture)";
 case "${dpkgArch##*-}" in
@@ -22,7 +23,7 @@ mv helix/runtime $HELIX
 
 rm -rf helix
 
-hx --grammar fetch
-hx --grammar build
+# hx --grammar fetch
+# hx --grammar build
 
 echo 'export HELIX_RUNTIME=/usr/local/.config/helix/runtime' > /etc/profile.d/helix.sh

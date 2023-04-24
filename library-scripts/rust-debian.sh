@@ -2,7 +2,11 @@
 export RUSTUP_HOME=/usr/local/rustup
 export CARGO_HOME=/usr/local/cargo
 export PATH=/usr/local/cargo/bin:$PATH
+<<<<<<< HEAD
 export RUST_VERSION=1.68.1
+=======
+export RUST_VERSION=1.69.0
+>>>>>>> main
 
 echo "Installing Rust $RUST_VERSION"
 
