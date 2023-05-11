@@ -16,7 +16,7 @@ case "${dpkgArch##*-}" in
     *) echo >&2 "unsupported architecture: ${dpkgArch}"; exit 1 ;;
 esac;
 
-url="https://static.rust-lang.org/rustup/archive/1.25.2/${rustArch}/rustup-init"
+url="https://static.rust-lang.org/rustup/archive/1.26.0/${rustArch}/rustup-init"
 wget "$url"
 echo "${rustupSha256} *rustup-init" | sha256sum -c -
 chmod +x rustup-init
