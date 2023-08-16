@@ -76,7 +76,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
 
     package_list="apt-utils \
         acl \
-        openssh-client \
+        openssh \
         gnupg2 \
         dirmngr \
         iproute2 \
