@@ -42,20 +42,19 @@ RUN cd /tmp/library-scripts && \
         npm i -g n yarn \
             typescript-language-server typescript bash-language-server vls svelte-language-server \
             awk-language-server@>=0.5.2 && \
-    # TODO Maybe a Next.js or a few frameworks to bootstrap?
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
     /bin/bash -l -c "rbenv install 3.2.1" && /bin/bash -l -c "rbenv global 3.2.1" && \
     /bin/bash -l -c "rbenv install 2.7.7" && \
-    # TODO Ruby: bundler
     # Go
     /bin/bash go-debian.sh && \
-    # TODO Python
     # Python
     /bin/bash pyenv-system-wide.sh && \
     /bin/bash -l -c "pyenv install 3.11.1" && /bin/bash -l -c "pyenv global 3.11.1" && \
     /bin/bash -l -c "pyenv install 2.7.18" && \
-    # TODO PHP
+    # PHP
+    /bin/bash php-debian.sh && \
+    # other tools
     /bin/bash helix-debian.sh && \
     /bin/bash nvim-debian.sh && \
     /bin/bash broot-debian.sh && \
