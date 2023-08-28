@@ -6,7 +6,7 @@ sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/
 apt update
 
 # Expand the curly braces with all extensions necessary.
-apt install php${TARGET_PHP_VERSION} php${TARGET_PHP_VERSION}-cli php${TARGET_PHP_VERSION}-{bz2,curl,mbstring,intl,xml} -y
+apt install php${TARGET_PHP_VERSION} php${TARGET_PHP_VERSION}-cli php${TARGET_PHP_VERSION}-{bz2,curl,mbstring,intl,xml,sqlite3} -y
 
 yes | pecl install xdebug \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
