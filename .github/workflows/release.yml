@@ -8,7 +8,7 @@
 # You can also reference a tag or branch, but the action may change without warning.
 
 name: Create and publish a Docker image
-runs-on: self-hosted
+
 
 on:
   push:
@@ -20,7 +20,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
