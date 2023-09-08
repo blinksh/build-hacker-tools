@@ -31,6 +31,8 @@ rm -f /etc/profile.d/00-restore-env.sh
 echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
 chmod +x /etc/profile.d/00-restore-env.sh
 
+echo "deb http://ftp.debian.org/debian experimental main" >> /etc/apt/sources.list
+
 # If in automatic mode, determine if a user already exists, if not use vscode
 if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
     USERNAME=""
@@ -105,7 +107,6 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         libgcc1 \
         libkrb5-3 \
         libgssapi-krb5-2 \
-        libicu[0-9][0-9] \
         liblttng-ust0 \
         libstdc++6 \
         zlib1g \
@@ -217,6 +218,7 @@ if [ "${USERNAME}" != "root" ] && [ "${EXISTING_NON_ROOT_USER}" != "${USERNAME}"
     EXISTING_NON_ROOT_USER="${USERNAME}"
 fi
 
+apt-get -t experimental install libc6 -y
 
 # systemctl shim - tells people to use 'service' if systemd is not running
 cat << 'EOF' > /usr/local/bin/systemctl

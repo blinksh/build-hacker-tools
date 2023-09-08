@@ -57,7 +57,7 @@ RUN cd /tmp/library-scripts && \
     # other tools
     /bin/bash helix-debian.sh && \
     /bin/bash nvim-debian.sh && \
-    # /bin/bash broot-debian.sh && \
+    /bin/bash broot-debian.sh && \
     /bin/bash gh-debian.sh && \
     /bin/bash tailscale-debian.sh && \
     rm -rf /tmp/*
