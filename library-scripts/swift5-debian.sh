@@ -3,8 +3,8 @@
 set -e
 
 SWIFT_PLATFORM=ubuntu20.04
-SWIFT_BRANCH=swift-5.8-release
-SWIFT_VERSION=swift-5.8-RELEASE
+SWIFT_BRANCH=swift-5.8.1-release
+SWIFT_VERSION=swift-5.8.1-RELEASE
 SWIFT_WEBROOT=https://download.swift.org
 # pub   4096R/ED3D1561 2019-03-22 [SC] [expires: 2023-03-23]
 #       Key fingerprint = A62A E125 BBBF BB96 A6E0  42EC 925C C1CC ED3D 1561

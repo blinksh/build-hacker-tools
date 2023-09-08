@@ -44,7 +44,7 @@ RUN cd /tmp/library-scripts && \
             awk-language-server@>=0.5.2 && \
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
-    /bin/bash -l -c "rbenv install 3.2.1" && /bin/bash -l -c "rbenv global 3.2.1" && \
+    /bin/bash -l -c "rbenv install 3.2.2" && /bin/bash -l -c "rbenv global 3.2.2" && \
     /bin/bash -l -c "rbenv install 2.7.7" && \
     # Go
     /bin/bash go-debian.sh && \
@@ -57,7 +57,7 @@ RUN cd /tmp/library-scripts && \
     # other tools
     /bin/bash helix-debian.sh && \
     /bin/bash nvim-debian.sh && \
-    /bin/bash broot-debian.sh && \
+    # /bin/bash broot-debian.sh && \
     /bin/bash gh-debian.sh && \
     /bin/bash tailscale-debian.sh && \
     rm -rf /tmp/*
