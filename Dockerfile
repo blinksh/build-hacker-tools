@@ -1,4 +1,4 @@
-ARG VARIANT="bullseye"
+ARG VARIANT="bookworm"
 FROM buildpack-deps:${VARIANT}
 
 ARG USERNAME=root
@@ -11,7 +11,7 @@ ARG UPGRADE_PACKAGES="true"
 # TODO Use common-library and then the rest, so that the context does not change for this stage.
 COPY common-library-scripts/*.sh common-library-scripts/*.env /tmp/library-scripts/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
+    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "false" \
     #
     # ****************************************************************************
     # * TODO: Add any additional OS packages you want included in the definition *
@@ -24,7 +24,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     sqlite3 postgresql-client \
     mc tree ack fzf \
     lua5.3 \
-    libc6 \
     #
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
@@ -42,6 +41,8 @@ RUN cd /tmp/library-scripts && \
         npm i -g n yarn \
             typescript-language-server typescript bash-language-server vls svelte-language-server \
             awk-language-server@>=0.5.2 && \
+    # Bun
+    curl -fsSL https://bun.sh/install | /bin/bash && \
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
     /bin/bash -l -c "rbenv install 3.2.2" && /bin/bash -l -c "rbenv global 3.2.2" && \
