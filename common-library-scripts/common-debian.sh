@@ -451,7 +451,7 @@ chmod +x /usr/local/bin/systemctl
 
 # code-tunnel script
 mkdir -p ~/.local/bin
-echo "export PATH=~/.local/bin:$PATH" >> /root/.bashrc
+echo "\nexport PATH=~/.local/bin:$PATH" >> /root/.bashrc
 
 cat << 'EOF' > ~/.local/bin/code-tunnel
 #!/bin/sh
