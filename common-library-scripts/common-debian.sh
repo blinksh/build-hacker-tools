@@ -451,7 +451,12 @@ chmod +x /usr/local/bin/systemctl
 
 # code-tunnel script
 mkdir -p ~/.local/bin
-echo "\nexport PATH=~/.local/bin:$PATH" >> /root/.bashrc
+# rbenv needs new lines
+cat << 'EOF' >> /root/.bashrc
+
+export PATH=~/.local/bin:$PATH
+
+EOF
 
 cat << 'EOF' > ~/.local/bin/code-tunnel
 #!/bin/sh
