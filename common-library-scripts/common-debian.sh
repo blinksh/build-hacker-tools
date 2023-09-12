@@ -28,7 +28,7 @@ fi
 
 # Ensure that login shells get the correct path if the user updated the PATH using ENV.
 rm -f /etc/profile.d/00-restore-env.sh
-echo "export PATH=~/.local/bin:${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
+echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
 chmod +x /etc/profile.d/00-restore-env.sh
 
 # If in automatic mode, determine if a user already exists, if not use vscode
@@ -451,6 +451,7 @@ chmod +x /usr/local/bin/systemctl
 
 # code-tunnel script
 mkdir -p ~/.local/bin
+echo "export PATH=~/.local/bin:$PATH" >> /root/.bashrc
 
 cat << 'EOF' > ~/.local/bin/code-tunnel
 #!/bin/sh
