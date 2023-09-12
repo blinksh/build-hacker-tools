@@ -28,7 +28,7 @@ fi
 
 # Ensure that login shells get the correct path if the user updated the PATH using ENV.
 rm -f /etc/profile.d/00-restore-env.sh
-echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
+echo "export PATH=~/.local/bin:${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
 chmod +x /etc/profile.d/00-restore-env.sh
 
 # If in automatic mode, determine if a user already exists, if not use vscode
@@ -448,6 +448,26 @@ chmod +x /usr/local/bin/systemctl
 #     echo "${meta_info_script}" > /usr/local/bin/devcontainer-info
 #     chmod +x /usr/local/bin/devcontainer-info
 # fi
+
+# code-tunnel script
+mkdir -p ~/.local/bin
+
+cat << 'EOF' > ~/.local/bin/code-tunnel
+#!/bin/sh
+
+if [ ! -f ~/.local/bin/code ]; then
+    (
+        echo "Downloading code-cli"
+        cd ~/.local/bin
+        curl --output vscode.tar.gz -L -X GET "https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64"
+        tar -zxf vscode.tar.gz
+        rm vscode.tar.gz
+        chmod +x ~/.local/bin/code
+    )
+fi
+~/.local/bin/code tunnel "$@"
+EOF
+chmod +x ~/.local/bin/code-tunnel
 
 # Write marker file
 mkdir -p "$(dirname "${MARKER_FILE}")"
