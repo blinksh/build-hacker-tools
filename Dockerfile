@@ -51,7 +51,7 @@ RUN cd /tmp/library-scripts && \
     /bin/bash go-debian.sh && \
     # Python
     /bin/bash pyenv-system-wide.sh && \
-    /bin/bash -l -c "pyenv install 3.11.1" && /bin/bash -l -c "pyenv global 3.11.1" && \
+    /bin/bash -l -c "pyenv install 3.11.5" && /bin/bash -l -c "pyenv global 3.11.5" && \
     /bin/bash -l -c "pyenv install 2.7.18" && \
     # PHP
     /bin/bash php-debian.sh && \
