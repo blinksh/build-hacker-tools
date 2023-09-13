@@ -449,32 +449,6 @@ chmod +x /usr/local/bin/systemctl
 #     chmod +x /usr/local/bin/devcontainer-info
 # fi
 
-# code-tunnel script
-mkdir -p ~/.local/bin
-# rbenv needs new lines
-cat << 'EOF' >> /root/.bashrc
-
-export PATH=~/.local/bin:$PATH
-
-EOF
-
-cat << 'EOF' > ~/.local/bin/code-tunnel
-#!/bin/sh
-
-if [ ! -f ~/.local/bin/code ]; then
-    (
-        echo "Downloading code-cli"
-        cd ~/.local/bin
-        curl --output vscode.tar.gz -L -X GET "https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64"
-        tar -zxf vscode.tar.gz
-        rm vscode.tar.gz
-        chmod +x ~/.local/bin/code
-    )
-fi
-~/.local/bin/code tunnel "$@"
-EOF
-chmod +x ~/.local/bin/code-tunnel
-
 # Write marker file
 mkdir -p "$(dirname "${MARKER_FILE}")"
 echo -e "\
