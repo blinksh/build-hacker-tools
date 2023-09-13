@@ -42,7 +42,7 @@ RUN cd /tmp/library-scripts && \
             typescript-language-server typescript bash-language-server vls svelte-language-server \
             awk-language-server@>=0.5.2 && \
     # Bun
-    curl -fsSL https://bun.sh/install | /bin/bash && \
+    curl -fsSL https://bun.sh/install | BUN_INSTALL=/usr/local /bin/bash && \
     # Ruby
     /bin/bash rbenv-system-wide.sh && \
     /bin/bash -l -c "rbenv install 3.2.2" && /bin/bash -l -c "rbenv global 3.2.2" && \
